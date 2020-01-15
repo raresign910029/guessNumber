@@ -12,13 +12,18 @@
 
     <title>猜數字遊戲</title>
     <style>
+        main {
+            background-image: url('./img/guessNum_bg.JPG');
+            background-size: cover;
+        }
+
         #guessNum {
             max-width: 400px;
             margin: 0 auto;
 
         }
 
-        .bold{
+        .bold {
             font-weight: 800;
         }
 
@@ -58,12 +63,22 @@
             max-width: 400px;
             margin: 0 auto;
         }
+
+        footer .copyrigth {
+            padding-top: 20px;
+        }
+
+        footer .copyrigth p {
+            text-align: center;
+            max-width: 200px;
+            margin: 0 auto;
+        }
     </style>
 </head>
 
 <body>
 
-<!-- 
+    <!-- 
     <div id="guessNum">
         <h1>Guess the number : </h1>
         <p id="content">Challenger! <br>Type 0~100 . Less times you try the more respect I give you.</p>
@@ -74,20 +89,30 @@
     <!-- winner photo -->
 
 
-
-    <div class="card mt-3 ">
-        <img src="./img/lottery.png" class="card-img-top" alt="...">
-        <div class="card-body">
-            <h3 class="card-title">猜數字 :</h3>
-            <p id="content" class="card-text"><span class="bold">歡迎你，挑戰者!</span> <br><br>請輸入 0~100 ，花費的次數越少<br>您離猜數字達人更近一步了。</p>
-            <input class="form-control" id="userAnswer" type="number" min="0" max="100">
-            <a href="#" class="btn btn-primary mt-2">送出</a>
-            <button class="clear btn btn-success mt-2"> 再玩一次 </button>
+    <main>
+        <div class="card mt-3 ">
+            <img src="./img/lottery.png" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h3 class="card-title">猜數字 :</h3>
+                <p id="content" class="card-text"><span class="bold">歡迎你，挑戰者!</span> <br><br>請輸入 0~100
+                    ，花費的次數越少<br>您離猜數字達人更近一步了。</p>
+                <input class="form-control" id="userAnswer" type="number" min="0" max="100">
+                <a href="#" class="btn btn-primary mt-2">送出</a>
+                <button class="clear btn btn-success mt-2"> 再玩一次 </button>
+            </div>
         </div>
-    </div>
-    <div class="winner">
+        <div class="winner">
 
-    </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="copyrigth">
+            <p>raresign910029 ©2020</p>
+        </div>
+
+    </footer>
+
 
 
     <script>
@@ -175,6 +200,15 @@
             clear.classList.remove('active'); //移除clear鍵
             winner.classList.remove('active'); //移除恭喜圖片
         }
+
+        var input = document.getElementById("userAnswer");
+
+        input.addEventListener("keyup", function (event) {
+            if (event.keyCode === 13) {
+                event.preventDefault();
+                document.querySelector(".btn.btn-primary").click();
+            }
+        });
     </script>
 
     <!-- Optional JavaScript -->
